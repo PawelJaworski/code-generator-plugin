@@ -1,6 +1,6 @@
-package org.jetbrains.plugins.template.services
+package com.github.paweljaworski.codegeneratorplugin.services
 
-import org.jetbrains.plugins.template.MyBundle
+import com.github.paweljaworski.codegeneratorplugin.MyBundle
 
 class MyApplicationService {
 
