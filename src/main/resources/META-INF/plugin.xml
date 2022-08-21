@@ -1,10 +1,11 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
     <id>com.github.paweljaworski.codegeneratorplugin</id>
-    <name>code-generator-plugin</name>
+    <name>codeGeneratorPlugin</name>
     <vendor>paweljaworski</vendor>
 
     <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.java</depends>
 
     <extensions defaultExtensionNs="com.intellij">
         <applicationService serviceImplementation="com.github.paweljaworski.codegeneratorplugin.services.MyApplicationService"/>
@@ -15,4 +16,14 @@
         <listener class="com.github.paweljaworski.codegeneratorplugin.listeners.MyProjectManagerListener"
                   topic="com.intellij.openapi.project.ProjectManagerListener"/>
     </applicationListeners>
+
+    <actions>
+        <action
+          id="javorek.code-generation"
+          class="com.github.paweljaworski.codegeneratorplugin.action.GenerateCode"
+          text="Generate code"
+          description="Generate code">
+            <add-to-group group-id="ProjectViewPopupMenu" anchor="last"/>
+        </action>
+    </actions>
 </idea-plugin>
