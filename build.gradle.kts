@@ -109,3 +109,9 @@ tasks {
         channels.set(listOf(properties("pluginVersion").split('-').getOrElse(1) { "default" }.split('.').first()))
     }
 }
+dependencies {
+    implementation("pl.javorek:code-generator:0.0.1-SNAPSHOT")
+}
+repositories {
+    mavenLocal()
+}
