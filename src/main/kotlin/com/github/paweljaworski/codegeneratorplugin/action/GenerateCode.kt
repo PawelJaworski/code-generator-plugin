@@ -1,6 +1,7 @@
 package com.github.paweljaworski.codegeneratorplugin.action
 
 import com.github.paweljaworski.codegeneratorplugin.java.JavaClassJavaPsiGenerator
+import com.github.paweljaworski.codegeneratorplugin.java.JavaMethodJavaPsiGenerator
 import com.intellij.openapi.actionSystem.*
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.command.CommandProcessor
@@ -26,6 +27,7 @@ class GenerateCode : AnAction() {
         val folder: VirtualFile = file!!.getParent()
         val config = CommandFacadeGenerationConfig.builder()
             .javaClassGenerator(JavaClassJavaPsiGenerator(e))
+            .javaMethodGenerator(JavaMethodJavaPsiGenerator(e))
             .build()
         val cqrsMetadata = CqrsCommandMetadata.builder()
             .basePackage("pl.javorex.mda")
