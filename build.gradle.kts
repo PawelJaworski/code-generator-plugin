@@ -110,7 +110,7 @@ tasks {
     }
 }
 dependencies {
-    implementation("pl.javorek:code-generator:0.0.1-SNAPSHOT")
+    implementation("io.github.paweljaworski:code-generator:0.0.2-RELEASE")
 }
 repositories {
     mavenLocal()
