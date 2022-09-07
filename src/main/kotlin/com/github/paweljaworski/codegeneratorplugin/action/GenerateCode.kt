@@ -1,5 +1,6 @@
 package com.github.paweljaworski.codegeneratorplugin.action
 
+import com.github.paweljaworski.codegeneratorplugin.java.JavaClassAlreadyExistsImpl
 import com.github.paweljaworski.codegeneratorplugin.java.JavaClassJavaPsiGenerator
 import com.github.paweljaworski.codegeneratorplugin.java.JavaMethodJavaPsiGenerator
 import com.intellij.openapi.actionSystem.*
@@ -24,10 +25,11 @@ class GenerateCode : AnAction() {
 
     override fun actionPerformed(e: AnActionEvent) {
         val file: VirtualFile? = e.dataContext.getData(PlatformDataKeys.VIRTUAL_FILE)
-        val folder: VirtualFile = file!!.getParent()
+//        val folder: VirtualFile = file!!.getParent()
         val config = CommandFacadeGenerationConfig.builder()
             .javaClassGenerator(JavaClassJavaPsiGenerator(e))
             .javaMethodGenerator(JavaMethodJavaPsiGenerator(e))
+            .isClassExists(JavaClassAlreadyExistsImpl(e))
             .build()
         val cqrsMetadata = CqrsCommandMetadata.builder()
             .basePackage("pl.javorex.mda")
